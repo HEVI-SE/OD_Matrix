@@ -47,8 +47,9 @@ Join: `boarding["Stop ID"] == stop["IsJourneyPatternPointGid"]` (verifierat
    uppladdningsruta — välj **båda** Excel-filerna från din dator
    (hållplats-/områdesfilen *och* påstignings-/boardingfilen). Filerna
    auto-identifieras via signaturkolumner, så ordning/filnamn spelar ingen roll.
-3. I slutet (§8) laddas OD-matriserna ner automatiskt; övriga filer finns i
-   Colabs panel **Files → `output/`**.
+3. Resultaten skrivs till `output/`. Ladda ner dem **manuellt** från Colabs
+   panel **Files → `output/`** (högerklicka → *Download*). Ingen automatisk
+   nedladdning görs.
 
 Pandas/NumPy/openpyxl/matplotlib är förinstallerade i Colab — ingen `pip` behövs.
 
@@ -74,9 +75,15 @@ ligger i **en parametercell överst** (§1 i notebooken).
 | `od_matrix_stoparea.xlsx` | OD-matriser område × område, ett blad per period (`OD_am`, `OD_pm`, `OD_total`). |
 | `od_matrix_{am,pm,total}.csv` | Samma matriser som CSV. |
 | `od_long_format.{csv,xlsx}` | Långformat `(from_area, from_name, to_area, to_name, period, trips)` för Visum/Dynameq-import. |
+| `od_reslista.xlsx` | Enkel lista `Från \| Till \| Antal resor \| Enhet` (+ gid), total per representativ vardag, 0-resor exkluderade. |
+| `stops_points.csv` | Hela StopPointochArea verbatim + tydliga `lon`/`lat` — för QGIS (X=lon, Y=lat, EPSG:4326). |
+| `stop_areas.csv` | En punkt per hållplatsområde (OD-nod): `stop_area_gid, area_name, lon, lat` — matchar reslistans gid för att rita flöden i QGIS. |
 | `diagnostics_report.csv` | Diagnostik (resmängd vs påstigning, byteskvot, konvergens, m.m.). |
 | `validation_checks.csv` | PASS/FAIL för valideringskontrollerna (§10). |
 | `fig_term_detection.png`, `fig_time_profile.png` | Terminsdetektion och bimodal tidsprofil. |
+
+Alla filer skrivs till `output/` och laddas **inte** ner automatiskt — hämta dem
+manuellt (i Colab: panelen **Files → `output/`**).
 
 ## Notebook-struktur
 
