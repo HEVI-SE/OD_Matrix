@@ -1,0 +1,7 @@
+kontroll,resultat,detalj
+1. Join-täckning boardingstopp → stoppfil,PASS,"443/443 stopp, 21329/21329 rader"
+2. Bimodal tidsprofil (toppar ~07–08 & ~14–16),PASS,"morgontopp kl 8, em-topp kl 15"
+3. Σ OD ≈ Σ boardings − Σ byten − ej placerbar,PASS,ΣOD=765.3 vs förväntat 767.8 (boardings 777.4 − byten 6.4 − ejplacerbar 3.2); avvikelse 0.33%
+"4. IPF-marginaler matchar O/D (IPF_TOL, försumbar restpost tillåten)",PASS,"21/22 segment < strikt IPF_TOL=1e-06; max restpost 5.7e-04 resor (< 0.01, försumbar)"
+5. Byteskvot: observerad navbyte-andel < skattad < 30%,PASS,rå Bussbyte-andel 1.16%; observerad navbyte-andel 0.33% → skattad 0.82% (3× uppskalning; Bussbyte finns även vid t.ex. Källbo skola)
+6. Områden med boardningar men utan skattad destination,PASS,inga
