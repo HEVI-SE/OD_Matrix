@@ -39,11 +39,29 @@ Join: `boarding["Stop ID"] == stop["IsJourneyPatternPointGid"]` (verifierat
 
 ## Köra
 
+### Google Colab (ingen installation)
+
+1. Öppna notebooken i Colab (Ladda upp `od_matrix_estimation.ipynb`, eller
+   *File → Open notebook → GitHub* och klistra in repo-URL:en).
+2. Kör cellerna uppifrån och ned. När du når **§2 Inläsning** öppnas en
+   uppladdningsruta — välj **båda** Excel-filerna från din dator
+   (hållplats-/områdesfilen *och* påstignings-/boardingfilen). Filerna
+   auto-identifieras via signaturkolumner, så ordning/filnamn spelar ingen roll.
+3. I slutet (§8) laddas OD-matriserna ner automatiskt; övriga filer finns i
+   Colabs panel **Files → `output/`**.
+
+Pandas/NumPy/openpyxl/matplotlib är förinstallerade i Colab — ingen `pip` behövs.
+
+### Lokalt
+
 ```bash
 pip install -r requirements.txt
+jupyter notebook od_matrix_estimation.ipynb
+# eller kör direkt:
 jupyter nbconvert --to notebook --execute --inplace od_matrix_estimation.ipynb
-# eller öppna interaktivt:  jupyter notebook od_matrix_estimation.ipynb
 ```
+
+Lokalt hittas de två filerna automatiskt i `data/raw/` (ingen uppladdning behövs).
 
 Notebooken är helt reproducerbar uppifrån och ned från de två råfilerna. Alla
 parametrar (tidsfönster, dagtypsfilter, nav, byteskalibrering, seed/IPF, export)
